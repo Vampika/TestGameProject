@@ -1,0 +1,213 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.wrapper{
+	width: 980px;
+	height: 630px;
+	border: 3px solid black;
+	background-color: #149483;
+	position: relative;
+	overflow: hidden;
+}
+
+.menu {
+	width: calc(100% - 10px);
+	height: 63px;
+	position: absolute;
+	bottom: 18px;
+	left: 5px;
+	display: flex;
+	flex-direction: row;
+	gap: 9px;
+}
+
+.menu__friends-row{
+	width: 536px;
+	background-image: url("assets/friends-bg.png");
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	padding: 0 8px;
+	gap: 9px;
+}
+
+.friends-row__gallery-wrapper{
+	width: 470px;
+	overflow: hidden;
+	display: flex;
+    align-items: center;
+}
+
+.friends-row__gallery {
+	display: flex;
+	gap: 10px;
+	transition: transform 0.5s ease;
+}
+
+.friends-row__btn{
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.gallery__friend{
+	width: 50px;
+	height: 51px;
+	background-image: url("assets/friend-bg-2.png");
+}
+
+.gallery__no-friend{
+	width: 50px;
+	height: 51px;
+	background-image: url("assets/friend-bg.png");
+}
+
+.menu__chat{
+	width: 65px;
+	height: 100%;
+}
+
+.menu__step {
+	width: 202px;
+	cursor: pointer;
+}
+
+.menu__email {
+	width: 64px;
+}
+
+.menu__rate{
+	width: 66px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.modal{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.45);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 1000;
+}
+
+.modal.active{
+	display: block;
+}
+
+.rating{
+	width: 523px;
+	height: 455px;
+	background-color: #b37a3c;
+	border-radius: 20px;
+	border: 4px solid #895d2e;
+	position: absolute;
+	top: 80px;
+	left: 228px;
+	box-sizing: border-box;
+	transform: translateY(-150%); /* Начальная позиция за пределами видимости */
+    transition: transform 2s ease-out 0.3s;
+    visibility: hidden; /* Элемент невидим при скрытии */
+	opacity: 0;
+}
+
+.rating.show{
+	transform: translateY(0%); /* Возвращаем элемент на место */
+	opacity: 1;
+    visibility: visible; /* Теперь он видим */
+}
+
+.rating__title img{
+	position: relative;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	top: -4px;
+}
+
+.rating__close-btn{
+	width: 26px;
+	height: 26px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	position: absolute;
+	right: 17px;
+	top: 14px;
+}
+
+.rating__table-wrapper {
+	width: 464px;
+	height: 324px;
+	background-color: #8c5a31;
+	position: absolute;
+	left: 50%;
+	bottom: 37px;
+	transform: translateX(-50%);
+	border-radius: 25px;
+	overflow-y: auto;
+	padding: 32px 0;
+	box-sizing: border-box;
+}
+
+.rating__table{
+	width: 403px;
+	margin: 0 auto;
+	color: #fff;
+	border-spacing: 0px 5px;
+}
+
+.rating__table thead{
+	height: 29px;
+	background-image: url("assets/table-head.png");
+	text-align: left;
+}
+
+.rating__table thead th {
+	padding-left: 15px;
+}
+
+.rating__table thead th:first-of-type{
+	text-align: center;
+	padding-left: 0;
+}
+
+.rating__table tbody tr {
+	height: 27px;
+	background-image: url("assets/rate-row.png");
+}
+
+.rating__table tbody tr td{
+	padding-left: 15px;
+}
+
+.rating__table tbody tr td:first-of-type{
+	text-align: center;
+	padding-left: 0;
+}
+
+.character{
+	width: 21px;
+	height: 69px;
+	background-image: url("assets/character.png");
+	position: absolute;
+	top: 420px;
+	left: 425px;
+}
+
+.wrapper svg{
+	position: absolute;
+	top: 28px;
+	left: 80px;
+}
