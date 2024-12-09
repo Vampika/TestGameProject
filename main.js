@@ -182,27 +182,27 @@ let currentStep = 0;
 
 const path = document.querySelector('#myPath');
 const pathLength = path.getTotalLength();
-const block = document.querySelector('.character');
+const character = document.querySelector('.character');
 let startTime = null;
-let progress = 0; // Начальный прогресс анимации
+let progress = 0;
 
-const startPoint = path.getPointAtLength(0); // Начальная точка пути
-block.style.transform = `translate(${startPoint.x + 80 - 429}px, ${startPoint.y + 28 - 492}px)`; // Установим начальную позицию блока
+const startPoint = path.getPointAtLength(0);
+character.style.transform = `translate(${startPoint.x + 80 - 429}px, ${startPoint.y + 28 - 492}px)`;
 
 function animate(timestamp) {
 	if (!startTime) startTime = timestamp;
 	const elapsed = timestamp - startTime;
-	const newProgress = elapsed / 450000; // Обновляем прогресс на основе времени
+	const newProgress = elapsed / 450000;
 
-	// Обновляем текущий прогресс
-	progress = Math.min(progress + newProgress, 1); // Убедимся, что прогресс не превышает 1
+
+	progress = Math.min(progress + newProgress, 1);
 
 	const point = path.getPointAtLength(progress * pathLength);
-	block.style.transform = `translate(${point.x + 80 - 429}px, ${point.y + 28 - 492}px)`;
+	character.style.transform = `translate(${point.x + 80 - 429}px, ${point.y + 28 - 492}px)`;
 
-	// Если прогресс меньше 1, продолжаем анимацию, иначе останавливаем
+
 	if (progress < steps[currentStep]) {
-		requestAnimationFrame(animate); // Промежуточный кадр
+		requestAnimationFrame(animate);
 	}
 	else {
 		currentStep++;
@@ -210,8 +210,8 @@ function animate(timestamp) {
 }
 
 document.getElementById('step-btn').addEventListener('click', function () {
-	startTime = performance.now(); // Сбросить время начальной точки
-	requestAnimationFrame(animate); // Запускаем анимацию
+	startTime = performance.now();
+	requestAnimationFrame(animate);
 });
 
 
